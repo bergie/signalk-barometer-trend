@@ -253,6 +253,21 @@ describe("Barometer Tests", function () {
     });
 
     describe("persist", function () {
+        it("Persist when nothing", function () {
+            //arrange
+            barometer.clear();
+            const all = barometer.getAll();
+
+            let actual = null;
+            const persistCallback = (json) => {
+                actual = json;
+            }
+            //act
+            barometer.persist(persistCallback);
+            //assert
+            assert.deepEqual(actual, all);
+        });
+
         it("Persist should persist", function () {
             //arrange
             barometer.clear();
