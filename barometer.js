@@ -175,7 +175,7 @@ function populate(populateCallback) {
     }
 }
 
-function JSONParser(content) {
+const JSONParser = (content) => {
     return JSON.parse(content, (key, value) => {
         if (key == "datetime") {
             return new Date(value);
